@@ -1,0 +1,93 @@
+<div class="content" resize-control>
+    
+    <div class="loadingMessage" ng-show="!dataIsReady&&(!error)">
+        <span>
+         <span >Загружаю информацию </span>
+        <i class="fa fa-spinner fa-pulse fa-2x fa-fw"></i>
+        </span>
+   </div>
+    
+     <i ng-show="mapLoading" class="fa fa-spinner fa-pulse fa-2x fa-fw mapLoadingIndicator"></i>
+
+<!--    <div id="map" office="currentShowOnMap" trigger="trigger" map-element></div>-->
+        <map-panel office="currentShowOnMap" trigger="trigger" loading="mapLoading"></map-panel>
+    
+    <div class="officesContainer">
+    <div class="chooseLayoutPanel" ng-show="showLayoutPannel&&dataIsReady">
+        <label class="radio-inline"><input type="radio" name="optradio" ng-click="setLayout('table')" ng-checked="layout === 'table'">Таблица</label>
+        <label class="radio-inline"><input type="radio" name="optradio" ng-click="setLayout('block')" ng-checked="layout === 'block'">Блоки</label>
+    </div>
+
+    <div ng-show="dataIsReady" class="input-group searchPanel">
+      <input type="text" class="form-control" placeholder="Город, улица.." aria-describedby="basic-addon2" ng-model="searchCriteria" ng-change="changeNumberOfPages(searchCriteria)">
+      <span class="input-group-addon" id="basic-addon2">Поиск</span>
+    </div>
+    
+    <div ng-show="isListEmpty()" class="messageEmptyList">
+        <span>Нет данных, отвечающих заданому критерию поиска</span>
+    </div>
+
+
+    <div ng-show="layout === 'table' ">
+     <table ng-show="dataIsReady && !isListEmpty()" class="table table-bordered table-striped officeTable">
+        <thead>
+            <tr>
+                <th ng-repeat="title in titles">{{title}}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr  ng-repeat="office in  offices | sliceArray:currentPage:itemsOnPage">
+                <td>{{office.name}}</td>
+                <td>{{office.address}}<button class="btn btn-info btnShowOnMap" ng-click="setItemShowOnMap(office)">Показать а карте</button></td>
+                <td>{{office.city}}</td>
+                <td>{{office.country}}</td>
+                <td>{{office.phone}}</td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+   <div ng-show="layout === 'block'">
+       <div ng-show="dataIsReady && !isListEmpty()">
+           <div class="panel panel-default" ng-repeat="office in offices | sliceArray:currentPage:itemsOnPage">
+               <div class="panel-heading">{{office.name}}</div>
+               <div class="panel-body">
+                   {{office.address}}<hr>
+                   {{office.city}}, {{office.country}}<hr>
+                   {{office.phone}}<hr>
+                   <button class="btn btn-info btnShowOnMap" ng-click="setItemShowOnMap(office)">Показать на карте</button>
+               </div>
+           </div>
+
+       </div>
+
+
+   </div>
+
+
+
+<!--            <tr ng-repeat="office in offices  | filter:searchCriteria | sliceArray:currentPage:itemsOnPage">-->
+
+
+<!--
+     <div class="panel panel-info office-panel" ng-repeat="office in offices | sliceArray:currentPage:itemsOnPage">
+      <div class="panel-heading">{{office.city}}</div>
+      <div class="panel-body">
+            Адрес: {{office.address}}<hr>
+            Город: {{office.city}}<hr>
+            Область: {{office.city}}<hr>
+            Страна: {{office.country}}<hr>
+            Тел.: {{office.phone}}<hr>
+            
+      </div>
+    </div>
+-->
+
+    <div ng-show="dataIsReady && !isListEmpty()" class="choosePagePanel">
+        <button class="btn glyphicon glyphicon-menu-left"  ng-disabled="currentPage === 1" ng-click="showPreviousPage()"></button>
+        <span>{{currentPage}}/{{numberOfPages}}</span>
+        <button class="btn glyphicon glyphicon-menu-right" ng-disabled="currentPage ===  numberOfPages" ng-click="showNextPage()"></button>
+    </div>
+
+    </div>
+
+</div>

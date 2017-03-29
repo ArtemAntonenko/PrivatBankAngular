@@ -1,0 +1,279 @@
+
+.container{
+    margin-top: 20px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 20px;
+    min-width: 320px;
+}
+
+.content{
+    margin: 20px;
+    margin-top: 50px;
+    position: relative;
+}
+
+.nav{
+
+}
+
+.officeTable{
+    table-layout: fixed;
+    font-size: 15px;
+    max-height: 500px;
+}
+
+.officeTable th{
+    height: 40px;
+    background-color: lightgray
+}
+
+.officeTable td{
+    height: 90px;
+}
+
+.searchPanel{
+    margin-bottom: 10px;
+}
+
+.messageEmptyList{
+    text-align: center;
+}
+
+.chooseLayoutPanel{
+    margin: 10px 0 30px 20px;
+}
+
+.panel{
+    float: left;
+    /*width: 90%;*/
+    /*min-width: 530px;*/
+    font-size: 15px;
+    margin-left: 20px;
+    text-align: center;
+}
+
+.panel-heading{
+    height: 5em;
+}
+
+.panel-body{
+    height: 250px;
+}
+
+.choosePagePanel{
+    clear: both;
+}
+
+.timeUpdatedPanel{
+    text-align: center;
+    clear: both;
+    font-size: 15px;
+    padding-top: 15px;
+}
+
+
+.currencyPanelHeading{
+    height: 3em;
+    font-weight: bold;
+}
+
+.currencyPanelBody{
+    height: 115px;
+}
+
+.containerForBtns > .btn, .containerForBtns > .form-control{
+    display: inline-block;
+    width: 200px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.containerForBtns{
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+}
+
+
+
+#map{
+    position: relative;
+    z-index: 0;
+    width: 100%;
+    height: 400px;
+    border:2px groove lightblue;
+}
+
+.officesContainer{
+    position: relative;
+    z-index: 1;
+}
+
+.mapPanel{
+    width: 100%;
+    height: 0px;
+    opacity: 0;
+    transition: 0s;
+}
+
+.mapPanelClose{
+    width: 100%;
+    height: 0;
+    opacity: 0;
+    transition: height 1s, opacity 0.5s linear;
+   /*    border:2px groove lightblue;*/
+}
+
+.mapPanelOpen{
+    width: 100%;
+    height: 450px;
+    opacity: 1;
+    transition: height 1s, opacity 0.7s linear 0.5s;
+}
+
+.container .nav{
+    width: 70%;
+    margin: 0 auto;
+}
+
+.loadingMessage{
+        text-align: center;
+}
+
+.mapLoadingIndicator{
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    z-index: 5;
+}
+
+
+@media (min-width: 768px) {
+    .panel{
+        width: 45%;
+    }
+    
+    .currencyBlock{
+        width: 30%;
+    }
+    
+}
+
+@media (min-width: 1200px) {
+    .panel{
+        width: 30%;
+    }
+}
+
+@media (max-width: 767px) {
+    
+    .loadingMessage{
+        font-size: 17px;
+    }
+    
+    .panel-heading{
+        height: auto;
+    }
+    .panel{
+        width: 70%;
+        margin-left: 15%;
+    }
+    .currencyBlock{
+        width: 60%;
+        margin-left: 20%;
+    }
+    
+    .currencyPanelHeading{
+        height: 3em;
+    }
+    
+    .panel-body{
+        height: auto;
+/*        line-height: 14px;*/
+    }
+    
+    .panel-body hr{
+        margin: 5px 0;
+    }
+    
+    .currencyPanelBody hr{
+        margin: 10px 0;
+    }
+    
+    .currencyPanelBody{
+        line-height: 10px;
+    }
+    
+    
+/*
+   .currencyPanelBody hr{
+        margin: 14px 0;
+    }
+*/
+
+    .containerForBtns > .btn, .containerForBtns > .form-control{
+        display: block;
+        margin: 4px auto;
+    }
+
+    .containerForBtns{
+        width: 100%;
+    }
+    
+    .mapPanelOpen{
+        width: 100%;
+        height: 530px;
+        opacity: 1;
+        transition: height 1s, opacity 1s linear 0.5s;
+    }
+
+}    
+
+
+@media (max-width: 570px) {
+    
+    .panel{
+        width: 100%;
+        margin-left: 0;
+    }
+    
+    .panel-body{
+        padding: 10px 4px;
+    }
+    
+     .currencyBlock{
+        width: 80%;
+        margin-left: 10%;
+    }
+    .container{
+        padding: 0;
+    }
+
+
+}
+
+
+
+.btnShowOnMap{
+    width: 100%;
+}
+
+.btn-info > .glyphicon{
+    margin-left: 10px;
+}
+
+.nav>li>a:focus{
+    text-decoration: none;
+    background-color: white;
+}
+
+.nav>li>a:hover {
+    text-decoration: none;
+    background-color: #eee;
+}
+
+.alert + .btn{
+    font-size: 20px;
+    display: block;
+    margin: 0 auto;
+}

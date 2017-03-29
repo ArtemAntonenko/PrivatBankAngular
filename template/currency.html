@@ -1,0 +1,43 @@
+
+<div class="content">
+    
+    <div class="loadingMessage" ng-show="!dataIsReady&&(!error)">
+        <span>
+         <span >Загружаю информацию </span>
+        <i class="fa fa-spinner fa-pulse fa-2x fa-fw"></i>
+        </span>
+   </div>
+<!--    <span class="sr-only">Loading...</span>-->
+<!--
+    <table ng-show="dataIsReady&&(!error)" class="table table-striped">
+        <thead>
+            <tr>
+                <th ng-repeat="title in titles">{{title}}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="currency in data">
+                <td ng-repeat="item in currency">{{item}}</td>
+            </tr>
+        </tbody>
+    </table>
+-->
+    
+    <div class="panel panel-default currencyBlock" ng-repeat="currency in data" >
+       <div class="panel-heading currencyPanelHeading">{{currency.ccy}} / {{currency.base_ccy}}</div>
+       <div class="panel-body currencyPanelBody">
+              Покупка: {{currency.buy}}<hr>
+              Продажа: {{currency.sale}}
+               </div>
+       
+        
+    </div>
+    
+    <div class="timeUpdatedPanel" ng-show="dataIsReady&&(!error)">
+        <span>Данные обновленны: {{lastTimeUpdated}}</span>
+    </div>
+
+    <div class="alert alert-danger" ng-show="error">Возникла ошибка при загрузке данных, проверьте интернет подключение и нижмите "загрузить данные".</div>
+    <button class="btn btn-info" ng-show="error" ng-click="downloadData()">Загрузить данные</button>
+
+</div>

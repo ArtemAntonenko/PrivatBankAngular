@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="privatBankApp">
+<head>
+    <meta charset="UTF-8">
+    <title>PrivatBank</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/android-native/onready.js"></script>
+</head>
+<body onload="onLoad()">
+
+    <div class="container" ng-controller="navCtrl">
+
+        <ul class="nav nav-pills" id="navPanel">
+            <li role="presentation" ng-class="{'active': isSelected('/')}">
+                <a href="#!/">Главная</a>
+            </li>
+            <li role="presentation" ng-class="{'active': isSelected('/currency')}">
+                <a href="#!/currency">Курсы валют</a>
+            </li>
+            <li role="presentation" ng-class="{'active': isSelected('/office')}">
+                <a href="#!/office">Отделения банка</a>
+            </li>
+        </ul>
+
+    <ng-view></ng-view>
+
+
+    </div>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-route.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/routing.js"></script>
+    <script src="js/directive/resize.js"></script>
+    <script src="js/directive/map.js"></script>
+    <script src="js/filter/sliceArray.js"></script>
+    <script src="js/service/privateBankService.js"></script>
+    <script src="js/service/googleService.js"></script>
+    <script src="js/controller/navController.js"></script>
+    <script src="js/controller/currencyController.js"></script>
+    <script src="js/controller/officeController.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD-sTwlX_--WC__bdPWk7Q1T81EzDwowII"></script>
+</body>
+</html>

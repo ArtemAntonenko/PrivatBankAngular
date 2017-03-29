@@ -1,0 +1,15 @@
+<div ng-class="{'mapPanelClose': visible === false,
+                'mapPanelOpen': visible,
+                'mapPanel': visible == null}">
+
+    <div id="map"></div>
+    <div class="containerForBtns">
+        <select class="form-control" ng-model="selectedMode">
+            <option value='DRIVING'>Автомобилем</option>
+            <option value='WALKING'>Пешком</option>
+            <option value='BICYCLING'>Велосипедом</option>
+        </select>
+        <button class='btn btn-info' ng-click="showDirection()">Проложить маршрут<span class='glyphicon glyphicon glyphicon-move'></span></button>
+        <button class='btn btn-info' ng-click="visible = false">Закрыть карту<span class='glyphicon glyphicon-eject'></span></button>
+    </div>
+</div>
