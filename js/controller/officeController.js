@@ -4,7 +4,7 @@ privatBankApp.controller("officeCtrl", ["$scope", "privateBankService", "$filter
     
     console.log($window.innerWidth);
     
-    $scope.itemsOnPage = 6;
+    $scope.itemsOnPage = 20;
     $scope.currentPage = 1;
     
     $scope.titles = ["Название", "Адрес", "Город", "Страна", "Телефон"];

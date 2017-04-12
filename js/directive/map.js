@@ -5,7 +5,7 @@ privatBankApp.directive("mapPanel", ["googleService", function (googleService) {
 
         directive.restrict = "E";
         
-        directive.templateUrl = "template/map.html";
+        directive.templateUrl = "template/mapElement.html";
 
         directive.scope = {
             office: "=",
@@ -65,8 +65,6 @@ privatBankApp.directive("mapPanel", ["googleService", function (googleService) {
                     renderMap(choosenOfficeLoc);
                     
                     $scope.loading = false;
-                    
-                    window.scrollTo(0, 150);
                    
 
                 }, function (err) {
@@ -93,6 +91,11 @@ privatBankApp.directive("mapPanel", ["googleService", function (googleService) {
                     title: $scope.office.name
                 });
                 
+                setTimeout(function(){
+                    console.log("position top = " + $("map-panel").offset().top);
+                    window.scrollTo(0, $("map-panel").offset().top - 10); 
+                }, 500);
+
             }
 
 
